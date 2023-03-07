@@ -1,12 +1,18 @@
 import React, {useState, useRef} from "react";
 import TodoList from "./components/TodoList"
 import { v4 as uuidv4} from "uuid";
+
+
 // Añadir el manejador al boton onclick(handleTodoAdd) 
 // UseRef
 // instalamos una libreria  con para geenerar id de manera
 // aleatoria
 // yarn add uuid 
 // lo importamos
+
+// el warning Warning: Each child in a list should have a unique "key" prop.
+// tenemos que modificar a todolist con una key
+
 export function App() {
  const [todos,setTodos] = useState([
     {id: 1,task: 'Tarea 1',completed: false}])
@@ -18,8 +24,10 @@ export function App() {
         if ( task === "") return;
         // setTodos necesita el estado previo y el nuevo
         setTodos( (prevTodos) => {
-            return [...prevTodos, {id: uuidv4,task,completed: false}];
+            return [...prevTodos, {id: uuidv4(),task,completed: false}];
         } )
+
+        todoTaskRef.current.value = null;
     }
 
 return ( 
