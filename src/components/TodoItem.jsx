@@ -1,7 +1,8 @@
 import React from 'react'
 
-export function TodoItem() {
-  return (
-    <div>TodoItem</div>
+export function TodoItem( {todo}) {
+    
+    return (
+    <li>TodoItem</li>
   )
 }
